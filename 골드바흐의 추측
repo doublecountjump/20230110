@@ -1,0 +1,22 @@
+num = 1000000    
+box = [True for i in range(num+1)]      
+box[0] = box[1] = False          
+prime = []         
+for j in range(num+1):
+    if box[j]:                                                
+        for k in range(j*j,num+1,j):              
+            if(k >num):                                      
+                break
+            box[k] = False
+        prime.append(j)
+        
+n = int(input())
+while(n!=0):
+    for x in range(num):
+        p = n - prime[x+1]
+        if box[p]:
+            print("{0} = {1} + {2}".format(n,prime[x+1],p))
+            break
+        elif x > n:
+            print("Goldbach's conjecture is wrong.")
+    n = int(input()) 
