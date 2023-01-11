@@ -1,0 +1,14 @@
+num = 10000          //범위 맞게 수 조정
+box = [True for i in range(num+1)]      
+box[0] = box[1] = False           //얘낸 소수라서 패스
+prime = []           //수를 집어넣을 공간
+for j in range(num+1):
+    if box[j]:                                                
+        for k in range(j*j,num+1,j):              
+            if(k >num):                                      
+                break
+            box[k] = False
+        prime.append(j)
+
+print(prime)
+    
